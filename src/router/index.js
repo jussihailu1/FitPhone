@@ -9,14 +9,14 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Results',
-    component: Results
-  },
-  {
     path: '/clock',
     name: 'Clock',
     component: Clock
+  },
+  {
+    path: '/results',
+    name: 'Results',
+    component: Results
   },
   {
     path: '/questions',
@@ -27,7 +27,12 @@ const routes = [
     path: '/tips',
     name: 'Tips',
     component: Tips
-  }
+  },
+  {
+    path: '/',
+    name: 'Clock',
+    component: Clock
+  },
 ]
 
 const router = new VueRouter({
