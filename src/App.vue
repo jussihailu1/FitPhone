@@ -1,13 +1,17 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <nav-bar></nav-bar>
   </div>
 </template>
 
 <script>
-//import Clock from './views/AlarmClock.vue'
+import NavBar from './components/NavBar.vue'
 
 export default {
+  components: {
+    "nav-bar": NavBar
+  }
 }
 </script>
 
