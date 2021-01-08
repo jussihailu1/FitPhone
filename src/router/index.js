@@ -1,44 +1,44 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Clock from '../views/AlarmClock.vue'
-import Questions from '../views/Questions.vue'
-import Results from '../views/Results.vue'
-import Tips from '../views/Tips.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Clock from "../views/AlarmClock.vue";
+import Questions from "../views/Questions.vue";
+import Results from "../views/Results.vue";
+import Tips from "../views/Tips.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/clock',
-    name: 'Clock',
-    component: Clock
+    path: "/clock",
+    name: "Clock",
+    component: Clock,
   },
   {
-    path: '/results',
-    name: 'Results',
-    component: Results
+    path: "/results",
+    name: "Results",
+    component: Results,
   },
   {
-    path: '/questions',
-    name: 'Questions',
-    component: Questions
+    path: "/questions",
+    name: "Questions",
+    component: Questions,
   },
   {
-    path: '/tips',
-    name: 'Tips',
-    component: Tips
+    path: "/tips",
+    name: "Tips",
+    component: Tips,
   },
   {
-    path: '/',
-    name: 'Clock',
-    component: Clock
+    path: "/",
+    name: "Clock",
+    component: Clock,
   },
-]
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
