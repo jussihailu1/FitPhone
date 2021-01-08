@@ -1,6 +1,8 @@
 export class Answer{
 
-    constructor(tip){
+    constructor(value, tip){
+        this.id;
+        this.value = value;
         this.tip = tip;
     }
 }

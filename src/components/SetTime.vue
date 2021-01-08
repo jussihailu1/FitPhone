@@ -3,7 +3,7 @@
     <label>Hour</label>
     <select v-model="hour" style="width: 100px">
       <option value="00">00</option>
-      <option v-for="i in 23" :key="i" :value="formatTime(i)">
+      <option v-for="i in 23" :key="i" :value="formatTime(i)" :selected="hour == i">
         {{ formatTime(i) }}
       </option>
     </select>
@@ -11,12 +11,12 @@
     <label>Minute</label>
     <select v-model="minute" style="width: 100px">
       <option value="00">00</option>
-      <option v-for="i in 59" :key="i" :value="formatTime(i)">
+      <option v-for="i in 59" :key="i" :value="formatTime(i)" :selected="minute == i">
         {{ formatTime(i) }}
       </option>
     </select>
 
-    <button @click="setTime">Save {{ timeName }}</button>
+    <button @click="saveTime">Save {{ timeName }}</button>
   </div>
 </template>
 
@@ -24,16 +24,25 @@
 export default {
   data() {
     return {
-      hour: "",
-      minute: "",
+      hour:
+        this.timeName == "Bed time"
+          ? this.formatTimeToHour(this.$store.state.clock.bedTime)
+          : this.formatTimeToHour(this.$store.state.clock.wakeUpTime),
+      minute: this.timeName == "Bed time"
+          ? this.formatTimeToMinute(this.$store.state.clock.bedTime)
+          : this.formatTimeToMinute(this.$store.state.clock.wakeUpTime),
     };
   },
   methods: {
-    test() {
-      console.log(this.$store.state.clock.bedTime);
+    formatTimeToHour(time) {
+      return time.substring(0, 2);
     },
-    setTime() {
+    formatTimeToMinute(time) {
+      return time.substring(3, 5);
+    },
+    saveTime() {
       let time = this.hour + ":" + this.minute;
+      console.log(time);
       if (this.timeName == "Bed time") {
         this.$store.state.clock.setBedTime(time);
       } else {
