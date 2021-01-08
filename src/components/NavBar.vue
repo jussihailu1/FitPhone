@@ -1,7 +1,22 @@
 <template>
-    <div class="bottom-bar">
-      <router-link v-for="link in links" :key="link" class="icon-text" @click.native="activeBtn = link.btn" :to="link.route"><md-icon :style="activeBtn === link.btn ? 'color: #FAB463' : 'color: white'" class="icon">{{link.icon}}</md-icon><span :style="activeBtn === link.btn ? 'color: #FAB463' : 'color: white'" class="text">{{link.text}}</span></router-link>
-    </div>
+  <div class="bottom-bar">
+    <router-link
+      v-for="link in links"
+      :key="link"
+      class="icon-text"
+      @click.native="activeBtn = link.btn"
+      :to="link.route"
+      ><md-icon
+        :style="activeBtn === link.btn ? 'color: #FAB463' : 'color: white'"
+        class="icon"
+        >{{ link.icon }}</md-icon
+      ><span
+        :style="activeBtn === link.btn ? 'color: #FAB463' : 'color: white'"
+        class="text"
+        >{{ link.text }}</span
+      ></router-link
+    >
+  </div>
 </template>
 
 <script>
@@ -10,25 +25,25 @@ export default {
     return {
       activeBtn: "",
       links: [
-        {btn: "btn1", icon: "alarm", route:"/clock", text:"Alarm"},
-        {btn: "btn2", icon: "analytics", route:"/results", text:"Results"},
-        {btn: "btn3", icon: "alarm", route:"/tips", text:"Tips"},
-        {btn: "btn4", icon: "alarm", route:"/questions", text:"Questions"}
-      ]
-    }
-  }
-}
+        { btn: "btn1", icon: "alarm", route: "/clock", text: "Alarm" },
+        { btn: "btn2", icon: "analytics", route: "/results", text: "Results" },
+        { btn: "btn3", icon: "alarm", route: "/tips", text: "Tips" },
+        { btn: "btn4", icon: "alarm", route: "/questions", text: "Questions" },
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="css" scoped>
-  .bottom-bar {
-    background-color: #2C2C2C;
-    overflow: hidden;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+.bottom-bar {
+  background-color: #2c2c2c;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 .icon-text {
   text-align: center;

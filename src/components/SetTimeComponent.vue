@@ -15,7 +15,6 @@
         {{ formatTime(i) }}
       </option>
     </select>
-
     <button @click="setTime">Save {{ timeName }}</button>
   </div>
 </template>
