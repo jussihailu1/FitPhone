@@ -2,7 +2,7 @@
   <div class="bottom-bar">
     <router-link
       v-for="link in links"
-      :key="link"
+      :key="link.key"
       class="icon-text"
       @click.native="activeBtn = link.btn"
       :to="link.route"
@@ -25,10 +25,22 @@ export default {
     return {
       activeBtn: "",
       links: [
-        { btn: "btn1", icon: "alarm", route: "/clock", text: "Alarm" },
-        { btn: "btn2", icon: "analytics", route: "/results", text: "Results" },
-        { btn: "btn3", icon: "alarm", route: "/tips", text: "Tips" },
-        { btn: "btn4", icon: "alarm", route: "/questions", text: "Questions" },
+        { key: 1, btn: "btn1", icon: "alarm", route: "/clock", text: "Alarm" },
+        {
+          key: 2,
+          btn: "btn2",
+          icon: "analytics",
+          route: "/results",
+          text: "Results",
+        },
+        { key: 3, btn: "btn3", icon: "alarm", route: "/tips", text: "Tips" },
+        {
+          key: 4,
+          btn: "btn4",
+          icon: "alarm",
+          route: "/questions",
+          text: "Questions",
+        },
       ],
     };
   },
