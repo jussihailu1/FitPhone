@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import SetTimeComponent from '../components/SetTimeComponent.vue'
+import SetTime from "../components/SetTime";
 
 export default {
   data() {
@@ -18,18 +18,21 @@ export default {
     }
   },
   components: {
-    "set-time-component": SetTimeComponent
+    "set-time": SetTime,
   },
   methods: {
-    test(){
+    showSetAlarmButton() {
+      this.showSetAlarm = true;
+    },
+    hideSetAlarmButton() {
+      this.showSetAlarm = false;
+    },
+    test() {
       console.log(this.$store.state.clock.bedTime);
       console.log(this.$store.state.clock.wakeUpTime);
     },
-    getBackground() {
-      document.get
-    }
   },
-}
+};
 // TODO: night alarm & morning alarm ipv bedtime & wakeuptime
 </script>
 
