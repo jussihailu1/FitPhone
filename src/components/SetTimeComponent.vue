@@ -16,7 +16,7 @@
       </option>
     </select>
 
-    <button @click="setTime">{{ timeName }}</button>
+    <button @click="setTime">Save {{ timeName }}</button>
   </div>
 </template>
 
