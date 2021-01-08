@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <h1 @click="test">Alarm clock</h1>
-
-    <set-time-component timeName="Bed time"></set-time-component>
-    <set-time-component timeName="Wake up time"></set-time-component>
+  <div class="content" :class="day == true ? 'day' : 'night'">
+    <a class="sun" @click="day = true"><img src="../assets/sun.svg"></a>
+    <a class="moon" @click="day = false"><img src="../assets/moon.svg"></a>
+    <set-time-component v-show="!day" timeName="Bed time"></set-time-component>
+    <set-time-component v-show="day" timeName="Wake up time"></set-time-component>
   </div>
 </template>
 
@@ -11,6 +11,12 @@
 import SetTimeComponent from '../components/SetTimeComponent.vue'
 
 export default {
+  data() {
+    return {
+      day: true,
+      background: "../assets/daybackground.svg"
+    }
+  },
   components: {
     "set-time-component": SetTimeComponent
   },
@@ -18,9 +24,43 @@ export default {
     test(){
       console.log(this.$store.state.clock.bedTime);
       console.log(this.$store.state.clock.wakeUpTime);
+    },
+    getBackground() {
+      document.get
     }
   },
 }
 // TODO: night alarm & morning alarm ipv bedtime & wakeuptime
 </script>
 
+<style scoped>
+  .day {
+      background-image: url("../assets/daybackground.svg");
+      transition: 3s;
+      opacity: 100;
+      -webkit-transition: background-image 0.2s ease-in-out;
+      transition: background-image 0.2s ease-in-out;
+  }
+  .night {
+      background-image: url("../assets/nightbackground.svg");
+      transition: width 3s;
+      -webkit-transition: background-image 0.2s ease-in-out;
+      transition: background-image 0.2s ease-in-out;
+  }
+  .content {
+      background-repeat: no-repeat;
+      background-size: 100vw;
+      height: 100vh;
+      width: 100vw;
+  }
+  .sun {
+    position: absolute;
+    left: 5vw;
+    margin-top: 4vh;
+  }
+  .moon {
+    position: absolute;
+    right: 5vw;
+    margin-top: 4vh;
+  }
+</style>

@@ -2,7 +2,7 @@
   <div class="bottom-bar">
     <router-link
       v-for="link in links"
-      :key="link"
+      :key="link.text"
       class="icon-text"
       @click.native="activeBtn = link.btn"
       :to="link.route"
@@ -23,7 +23,7 @@
 export default {
   data() {
     return {
-      activeBtn: "",
+      activeBtn: "btn1",
       links: [
         { btn: "btn1", icon: "alarm", route: "/clock", text: "Alarm" },
         { btn: "btn2", icon: "analytics", route: "/results", text: "Results" },
