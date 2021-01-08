@@ -1,20 +1,51 @@
 <template>
     <div class="bottom-bar">
-      <md-bottom-bar md-type="shift">
-        <md-bottom-bar-item to="/" md-label="Home" md-icon="analytics"></md-bottom-bar-item>
-        <md-bottom-bar-item to="/clock" md-label="Clock" md-icon="alarm"></md-bottom-bar-item>
-        <md-bottom-bar-item to="/tips" md-label="Tips" md-icon="info"></md-bottom-bar-item>
-        <md-bottom-bar-item to="/questions" md-label="Questions" md-icon="help"></md-bottom-bar-item>
-      </md-bottom-bar>
+      <router-link v-for="link in links" :key="link" class="icon-text" @click.native="activeBtn = link.btn" :to="link.route"><md-icon :style="activeBtn === link.btn ? 'color: #FAB463' : 'color: white'" class="icon">{{link.icon}}</md-icon><span :style="activeBtn === link.btn ? 'color: #FAB463' : 'color: white'" class="text">{{link.text}}</span></router-link>
     </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      activeBtn: "",
+      links: [
+        {btn: "btn1", icon: "alarm", route:"/clock", text:"Alarm"},
+        {btn: "btn2", icon: "analytics", route:"/results", text:"Results"},
+        {btn: "btn3", icon: "alarm", route:"/tips", text:"Tips"},
+        {btn: "btn4", icon: "alarm", route:"/questions", text:"Questions"}
+      ]
+    }
+  }
+}
+</script>
+
 <style lang="css" scoped>
   .bottom-bar {
-  background-color: #333;
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+    background-color: #2C2C2C;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.icon-text {
+  text-align: center;
+}
+.icon-text:hover {
+  text-decoration: none;
+}
+a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.text {
+  display: block;
+  color: #ffffff;
+  font-size: 2.5vw;
+}
+.md-icon {
+  font-size: 2.5vw;
 }
 </style>

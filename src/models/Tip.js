@@ -1,5 +1,6 @@
 export class Tip{
-    constructor(content) {
-        this.content = content;
+    constructor(title, description) {
+        this.title = title;
+        this.content = description;
     }
 }
