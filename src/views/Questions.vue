@@ -1,18 +1,16 @@
 <template>
-  <div>
+  <div class="w-full h-full p-5 bg-blue-300 justify-center">
     <h1>Questions</h1>
     <br />
-    <question-slider
-      v-for="q in rangeQuestions"
-      :key="q.id"
-      :question="q"
-    >
-    </question-slider>
-    <question-multiple-choice
-      v-for="q in multipleChoiceQuestions"
-      :key="q.id"
-      :question="q"
-    ></question-multiple-choice>
+    <div class="">
+      <question-slider v-for="q in rangeQuestions" :key="q.id" :question="q">
+      </question-slider>
+      <question-multiple-choice
+        v-for="q in multipleChoiceQuestions"
+        :key="q.id"
+        :question="q"
+      ></question-multiple-choice>
+    </div>
     <div @click="saveQuestions">
       <Button buttonText="Done" />
     </div>
