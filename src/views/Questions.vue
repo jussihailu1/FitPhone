@@ -22,6 +22,7 @@ import QuestionSlider from "../components/QuestionSlider";
 import QuestionMultipleChoice from "../components/QuestionMultipleChoice";
 import { QuestionType } from "../enums/QuestionType";
 import Button from "../components/Button";
+import store from "../store"
 
 export default {
   components: {
@@ -31,11 +32,11 @@ export default {
   },
   data() {
     return {
-      questions: this.$store.state.questions,
-      rangeQuestions: this.$store.state.questions.filter(
+      questions: store.state.questions,
+      rangeQuestions: store.state.questions.filter(
         (q) => q.questionType == QuestionType.Range
       ),
-      multipleChoiceQuestions: this.$store.state.questions.filter(
+      multipleChoiceQuestions: store.state.questions.filter(
         (q) => q.questionType == QuestionType.MultipleChoice
       ),
     };
@@ -44,7 +45,7 @@ export default {
     saveQuestions() {
       let allQuestionsAnswered = true;
 
-      for (const q of this.$store.state.questions) {
+      for (const q of store.state.questions) {
         if (q.selectedAnswer == undefined) {
           allQuestionsAnswered = false;
           break;
@@ -52,9 +53,11 @@ export default {
       }
 
       if (allQuestionsAnswered) {
-        this.$store.state.questions.forEach((q) => {
+        store.state.questions.forEach((q) => {
+          store.state.selectedAnswers.push(q.selectedAnswer);
           console.log(q.selectedAnswer.value);
         });
+        this.$router.push("tips");
       } else {
         alert("Answer all questions!");
       }
