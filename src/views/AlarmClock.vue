@@ -1,35 +1,24 @@
 <template>
-  <div>
-    <h1 class="text-2xl">Alarm clock</h1>
-
-    <div v-if="!showSetAlarm" @click="showSetAlarmButton">
-      <Button buttonText="Set Alarm" />
-    </div>
-
-    <div v-if="showSetAlarm">
-      <set-time timeName="Bed time"></set-time>
-      <set-time timeName="Wake up time"></set-time>
-    </div>
-
-    <div v-if="showSetAlarm" @click="hideSetAlarmButton">
-      <Button buttonText="Done" />
-    </div>
+  <div class="content" :class="day == true ? 'day' : 'night'">
+    <a class="sun" @click="day = true"><img src="../assets/sun.svg"></a>
+    <a class="moon" @click="day = false"><img src="../assets/moon.svg"></a>
+    <set-time v-show="!day" timeName="Bed time"></set-time>
+    <set-time v-show="day" timeName="Wake up time"></set-time>
   </div>
 </template>
 
 <script>
 import SetTime from "../components/SetTime";
-import Button from "../components/Button";
 
 export default {
   data() {
     return {
-      showSetAlarm: false,
-    };
+      day: true,
+      background: "../assets/daybackground.svg"
+    }
   },
   components: {
-    "set-time": SetTime,
-    Button,
+    "set-time": SetTime
   },
   methods: {
     showSetAlarmButton() {
@@ -42,3 +31,34 @@ export default {
 };
 </script>
 
+<style scoped>
+  .day {
+      background-image: url("../assets/daybackground.svg");
+      transition: 3s;
+      opacity: 100;
+      -webkit-transition: background-image 0.2s ease-in-out;
+      transition: background-image 0.2s ease-in-out;
+  }
+  .night {
+      background-image: url("../assets/nightbackground.svg");
+      transition: width 3s;
+      -webkit-transition: background-image 0.2s ease-in-out;
+      transition: background-image 0.2s ease-in-out;
+  }
+  .content {
+      background-repeat: no-repeat;
+      background-size: 100vw;
+      height: 100vh;
+      width: 100vw;
+  }
+  .sun {
+    position: absolute;
+    left: 5vw;
+    margin-top: 4vh;
+  }
+  .moon {
+    position: absolute;
+    right: 5vw;
+    margin-top: 4vh;
+  }
+</style>

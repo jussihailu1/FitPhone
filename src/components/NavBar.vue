@@ -23,7 +23,7 @@
 export default {
   data() {
     return {
-      activeBtn: "",
+      activeBtn: "btn1",
       links: [
         { key: 1, btn: "btn1", icon: "alarm", route: "/clock", text: "Alarm" },
         {
