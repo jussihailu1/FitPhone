@@ -2,11 +2,7 @@
   <div>
     <h1>Questions</h1>
     <br />
-    <question-slider
-      v-for="q in rangeQuestions"
-      :key="q.id"
-      :question="q"
-    >
+    <question-slider v-for="q in rangeQuestions" :key="q.id" :question="q">
     </question-slider>
     <question-multiple-choice
       v-for="q in multipleChoiceQuestions"
@@ -44,8 +40,21 @@ export default {
   },
   methods: {
     saveQuestions() {
+      let allQuestionsAnswered = true;
+
       for (const q of this.$store.state.questions) {
-        console.log(q.selectedAnswer.value);
+        if (q.selectedAnswer == undefined) {
+          allQuestionsAnswered = false;
+          break;
+        }
+      }
+
+      if (allQuestionsAnswered) {
+        this.$store.state.questions.forEach((q) => {
+          console.log(q.selectedAnswer.value);
+        });
+      } else {
+        alert("Answer all questions!");
       }
     },
   },
