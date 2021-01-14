@@ -68,7 +68,8 @@ export default new Vuex.Store({
           new Answer("Gaming", "Go to bed you haryupke."),
           new Answer("Other", "Go to bed you benchod."),
         ]),
-    ]
+    ],
+    selectedAnswers: []
   },
   mutations: {
   },

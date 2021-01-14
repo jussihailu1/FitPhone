@@ -1,10 +1,17 @@
 <template>
   <div>
-    <label @load="test">
+    <label @click="test">
       {{ question.question }}
     </label>
     <br />
-    <input @mouseup="setAnswer" type="range" :min="min" :max="max" :step="1" v-model="answer" />
+    <input
+      @change="answerQuestion"
+      type="range"
+      :min="min"
+      :max="max"
+      :step="1"
+      v-model="answerIndex"
+    />
   </div>
 </template>
 
@@ -14,7 +21,7 @@ import { Question } from "../models/Question";
 export default {
   data() {
     return {
-      answer: 3,
+      answerIndex: 3,
       min: this.question.answers[0].value,
       max: this.question.answers[this.question.answers.length - 1].value,
     };
@@ -24,15 +31,17 @@ export default {
   },
   methods: {
     test() {
-      console.log(this.answer);
+      console.log(this.question);
+      console.log(this.question.selectedAnswer);
     },
-    setAnswer(){
-      this.question.selectedAnswer = this.answer;
-      console.log(this.answer.value);
-    }
+    answerQuestion() {
+      this.question.selectedAnswer = this.question.answers[
+        this.answerIndex - 1
+      ];
+    },
   },
-  mounted(){
-    this.setAnswer();
-  }
+  mounted() {
+    this.answerQuestion();
+  },
 };
 </script>
