@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="poppins font-extrathin">
     <router-view></router-view>
     <!-- <div class="p-16">
       <Button buttonText="Set Alarm" />
