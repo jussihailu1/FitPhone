@@ -8,15 +8,17 @@
     <v-time-picker
       v-if="showTimePicker"
       v-model="time"
-      color="#000"
+      :color="day ? 'bg-gold' : 'bg-blue'"
       format="24hr"
+      class="time-picker"
+      event-color="bg-gold"
+      :dark="true"
     >
       <Button
-        buttonText="save"
-        class="p-12 bg-gold"
+        buttonText="Save"
+        :class="day ? 'bg-gold p-12 btn-save' : 'bg-blue p-12 btn-save'"
         @click.native="saveTime()"
-        >save</Button
-      >
+        ></Button>
     </v-time-picker>
   </div>
 </template>
@@ -29,7 +31,7 @@ export default {
       time: new Date().toLocaleTimeString().slice(0,5),
       date: this.getDate(),
       location: "Eindhoven",
-      showTimePicker: false,
+      showTimePicker: true,
     };
   },
   methods: {
@@ -61,6 +63,7 @@ export default {
   },
   props: {
     timeName: String,
+    day: Boolean
   },
   components: {
     Button: Button,
@@ -80,5 +83,12 @@ export default {
   top: 58vh;
   left: 50%;
   transform: translateX(-50%);
+}
+.time-picker {
+  margin-top: -50vh;
+  border: none !important;
+}
+.btn-save {
+  margin: 0 auto 0 auto;
 }
 </style>

@@ -2,8 +2,8 @@
   <div class="content" :class="day == true ? 'day' : 'night'">
     <a class="sun" @click="day = true"><img src="../assets/sun.svg"></a>
     <a class="moon" @click="day = false"><img src="../assets/moon.svg"></a>
-    <set-time v-show="!day" timeName="Bed time"></set-time>
-    <set-time v-show="day" timeName="Wake up time"></set-time>
+    <set-time v-show="!day" timeName="Bed time" :day="day"></set-time>
+    <set-time v-show="day" timeName="Wake up time" :day="day"></set-time>
   </div>
 </template>
 
