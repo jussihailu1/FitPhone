@@ -7,11 +7,11 @@
       @click.native="$store.state.activeBtn = link.btn"
       :to="link.route"
       ><md-icon
-        :style="$store.state.activeBtn === link.btn ? 'color: #FAB463' : 'color: white'"
+        :style="$store.state.activeBtn === link.btn ? $store.state.day ? 'color: #FAB463' : 'color: #57AAE0' : 'color: white'"
         class="icon"
         >{{ link.icon }}</md-icon
       ><span
-        :style="$store.state.activeBtn === link.btn ? 'color: #FAB463' : 'color: white'"
+        :style="$store.state.activeBtn === link.btn ? $store.state.day ? 'color: #FAB463' : 'color: #57AAE0' : 'color: white'"
         class="text"
         >{{ link.text }}</span
       ></router-link
@@ -42,7 +42,7 @@ export default {
         },
       ],
     };
-  },
+  }
 };
 </script>
 
