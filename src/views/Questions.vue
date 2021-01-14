@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 @click="test">Questions</h1>
+    <h1>Questions</h1>
     <br />
     <question-slider
       v-for="q in rangeQuestions"
@@ -13,6 +13,9 @@
       :key="q.id"
       :question="q"
     ></question-multiple-choice>
+    <div @click="saveQuestions">
+      <Button buttonText="Done" />
+    </div>
   </div>
 </template>
 
@@ -20,11 +23,13 @@
 import QuestionSlider from "../components/QuestionSlider";
 import QuestionMultipleChoice from "../components/QuestionMultipleChoice";
 import { QuestionType } from "../enums/QuestionType";
+import Button from "../components/Button";
 
 export default {
   components: {
     "question-slider": QuestionSlider,
     "question-multiple-choice": QuestionMultipleChoice,
+    Button,
   },
   data() {
     return {
@@ -38,8 +43,10 @@ export default {
     };
   },
   methods: {
-    test() {
-      console.log(this.$store.state.questions);
+    saveQuestions() {
+      for (const q of this.$store.state.questions) {
+        console.log(q.selectedAnswer.value);
+      }
     },
   },
 };

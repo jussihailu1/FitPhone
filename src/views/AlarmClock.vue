@@ -1,21 +1,25 @@
 <template>
   <div>
-    <h1 @click="test">Alarm clock</h1>
+    <h1 class="text-2xl">Alarm clock</h1>
 
-    <button v-if="!showSetAlarm" @click="showSetAlarmButton">Set alarm</button>
+    <div v-if="!showSetAlarm" @click="showSetAlarmButton">
+      <Button buttonText="Set Alarm" />
+    </div>
 
     <div v-if="showSetAlarm">
       <set-time timeName="Bed time"></set-time>
       <set-time timeName="Wake up time"></set-time>
     </div>
 
-    <button v-if="showSetAlarm" @click="hideSetAlarmButton">Done</button>
-
+    <div v-if="showSetAlarm" @click="hideSetAlarmButton">
+      <Button buttonText="Done" />
+    </div>
   </div>
 </template>
 
 <script>
 import SetTime from "../components/SetTime";
+import Button from "../components/Button";
 
 export default {
   data() {
@@ -25,6 +29,7 @@ export default {
   },
   components: {
     "set-time": SetTime,
+    Button,
   },
   methods: {
     showSetAlarmButton() {
@@ -33,12 +38,7 @@ export default {
     hideSetAlarmButton() {
       this.showSetAlarm = false;
     },
-    test() {
-      console.log(this.$store.state.clock.bedTime);
-      console.log(this.$store.state.clock.wakeUpTime);
-    },
   },
 };
-// TODO: night alarm & morning alarm ipv bedtime & wakeuptime
 </script>
 

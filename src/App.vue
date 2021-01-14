@@ -1,20 +1,20 @@
 <template>
   <div id="app">
-    <!-- <router-view></router-view> -->
-    <div class="p-16">
+    <router-view></router-view>
+    <!-- <div class="p-16">
       <Button buttonText="Set Alarm" />
-    </div>
+    </div> -->
     <nav-bar></nav-bar>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
-import Button from "./components/Button.vue";
+// import Button from "./components/Button.vue";
 export default {
   components: {
     "nav-bar": NavBar,
-    Button,
+    // Button,
   },
 };
 </script>

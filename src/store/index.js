@@ -9,11 +9,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    counter: 0,
     clock: new Clock(),
     questions: [
       new Question(
         0,
-        "How did you sleep?",
+        "How well did you sleep?",
         QuestionType.Range,
         [
           new Answer(1, "Go to bed you motherchod."),
@@ -24,7 +25,7 @@ export default new Vuex.Store({
         ]),
       new Question(
         1,
-        "How did you sleep?",
+        "How much energy did you have today?",
         QuestionType.Range,
         [
           new Answer(1, "Go to bed you motherchod."),
@@ -35,14 +36,14 @@ export default new Vuex.Store({
         ]),
       new Question(
         2,
-        "Why do you fail to sleep on time?",
-        QuestionType.MultipleChoice,
+        "How difficult was it to wake up?",
+        QuestionType.Range,
         [
-          new Answer("Youtube", "Go to bed you motherchod."),
-          new Answer("Netflix", "Go to bed you honkerchonkor."),
-          new Answer("Drugs", "Go to bed you hippetyhop."),
-          new Answer("Gaming", "Go to bed you haryupke."),
-          new Answer("Dumb shit", "Go to bed you benchod."),
+          new Answer(1, "Go to bed you motherchod."),
+          new Answer(2, "Go to bed you honkerchonkor."),
+          new Answer(3, "Go to bed you hippetyhop."),
+          new Answer(4, "Go to bed you haryupke."),
+          new Answer(5, "Go to bed you benchod."),
         ]),
       new Question(
         3,
@@ -51,9 +52,20 @@ export default new Vuex.Store({
         [
           new Answer("Youtube", "Go to bed you motherchod."),
           new Answer("Netflix", "Go to bed you honkerchonkor."),
-          new Answer("Drugs", "Go to bed you hippetyhop."),
+          new Answer("Chatting", "Go to bed you hippetyhop."),
           new Answer("Gaming", "Go to bed you haryupke."),
-          new Answer("Dumb shit", "Go to bed you benchod."),
+          new Answer("Other", "Go to bed you benchod."),
+        ]),
+      new Question(
+        4,
+        "What kept you from falling asleep?",
+        QuestionType.MultipleChoice,
+        [
+          new Answer("Youtube", "Go to bed you motherchod."),
+          new Answer("Netflix", "Go to bed you honkerchonkor."),
+          new Answer("Chatting", "Go to bed you hippetyhop."),
+          new Answer("Gaming", "Go to bed you haryupke."),
+          new Answer("Other", "Go to bed you benchod."),
         ]),
     ]
   },
