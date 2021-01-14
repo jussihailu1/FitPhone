@@ -31,7 +31,7 @@ export default {
       time: new Date().toLocaleTimeString().slice(0,5),
       date: this.getDate(),
       location: "Eindhoven",
-      showTimePicker: true,
+      showTimePicker: false,
     };
   },
   methods: {
