@@ -8,15 +8,15 @@
     <v-time-picker
       v-if="showTimePicker"
       v-model="time"
-      :color="day ? 'bg-gold' : 'bg-blue'"
+      :color="$store.state.day ? 'bg-gold' : 'bg-blue'"
       format="24hr"
       class="time-picker"
-      event-color="bg-gold"
+      :event-color="$store.state.day ? 'bg-gold' : 'bg-blue'"
       :dark="true"
     >
       <Button
         buttonText="Save"
-        :class="day ? 'bg-gold p-12 btn-save' : 'bg-blue p-12 btn-save'"
+        :class="$store.state.day ? 'bg-gold p-12 btn-save' : 'bg-blue p-12 btn-save'"
         @click.native="saveTime()"
         ></Button>
     </v-time-picker>
@@ -55,15 +55,14 @@ export default {
     },
     getDate() {
       let d = new Date();
-      let ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(d);
+      let nr = new Intl.DateTimeFormat("en", { day: "numeric" }).format(d);
       let mo = new Intl.DateTimeFormat("en", { month: "long" }).format(d);
-      let da = new Intl.DateTimeFormat("en", { weekday: "short" }).format(d);
-      return `${da}-${mo}-${ye}`;
+      let da = new Intl.DateTimeFormat("en", { weekday: "long" }).format(d);
+      return `${da} ${mo} ${nr}`;
     }
   },
   props: {
-    timeName: String,
-    day: Boolean
+    timeName: String
   },
   components: {
     Button: Button,
