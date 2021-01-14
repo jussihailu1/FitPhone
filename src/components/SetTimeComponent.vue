@@ -7,7 +7,7 @@
     </div>
     <button @click="getDate" class="save py-2 px-16 bg-gold rounded-2xl tracking-wider text-xl" type="submit">Save {{timeName}}</button>
     <v-time-picker v-if="showTimePicker" v-model="time" color="#000" format="24hr">
-        <Button buttonText="save" @click.native="showTimePicker = false"></Button>
+        <Button buttonText="save" @click.native="save()"></Button>
     </v-time-picker>
   </div>
 </template>
@@ -17,9 +17,7 @@ import Button from "./Button.vue";
 export default {
   data() {
     return {
-      time: "00:00",
-      hour: "12:",
-      minute: "20",
+      time: "",
       date: "",
       location: "Hapert",
       showTimePicker: false
@@ -29,13 +27,20 @@ export default {
     test() {
       console.log(this.$store.state.clock.bedTime);
     },
+    save() {
+        showTimePicker = false;
+        console.log(time);
+        //this.setTime();
+    },
     setTime() {
-      let time = this.hour + ":" + this.minute;
+      // let time = this.hour + ":" + this.minute;
+      console.log(time);
       if (this.timeName == "Bed time") {
         this.$store.state.clock.setBedTime(time);
       } else {
         this.$store.state.clock.setWakeUpTime(time);
       }
+      console.log(this.$store.state.clock.bedTime);
     },
     formatTime(i) {
       return i.toString().padStart(2, "0");

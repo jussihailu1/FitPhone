@@ -2,7 +2,7 @@
   <div class="info">
     <div>
       <h1 class="time" @click="showTimePicker = true">{{ time }}</h1>
-      <h1 class="date">{{ getDate() }}</h1>
+      <h1 class="date">{{ date }}</h1>
       <h1 class="location">{{ this.location }}</h1>
     </div>
     <v-time-picker
@@ -14,7 +14,7 @@
       <Button
         buttonText="save"
         class="p-12 bg-gold"
-        @click.native="showTimePicker = false"
+        @click.native="saveTime()"
         >save</Button
       >
     </v-time-picker>
@@ -26,11 +26,9 @@ import Button from "./Button.vue";
 export default {
   data() {
     return {
-      time: "00:00",
-      hour: "12:",
-      minute: "20",
-      date: "",
-      location: "Hapert",
+      time: new Date().toLocaleTimeString().slice(0,5),
+      date: this.getDate(),
+      location: "Eindhoven",
       showTimePicker: false,
     };
   },
@@ -42,12 +40,12 @@ export default {
       return time.substring(3, 5);
     },
     saveTime() {
-      let time = this.hour + ":" + this.minute;
-      console.log(time);
+      this.showTimePicker = false;
+      console.log(this.time);
       if (this.timeName == "Bed time") {
-        this.$store.state.clock.setBedTime(time);
+        this.$store.state.clock.setBedTime(this.time);
       } else {
-        this.$store.state.clock.setWakeUpTime(time);
+        this.$store.state.clock.setWakeUpTime(this.time);
       }
     },
     formatTime(i) {
@@ -59,7 +57,7 @@ export default {
       let mo = new Intl.DateTimeFormat("en", { month: "long" }).format(d);
       let da = new Intl.DateTimeFormat("en", { weekday: "short" }).format(d);
       return `${da}-${mo}-${ye}`;
-    },
+    }
   },
   props: {
     timeName: String,
