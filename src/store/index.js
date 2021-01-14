@@ -9,7 +9,6 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    counter: 0,
     clock: new Clock(),
     questions: [
       new Question(
@@ -68,7 +67,9 @@ export default new Vuex.Store({
           new Answer("Other", "Go to bed you benchod."),
         ]),
     ],
-    selectedAnswers: []
+    selectedAnswers: [],
+    activeBtn: "btn1",
+    questionsAnswered: false
   },
   mutations: {
   },

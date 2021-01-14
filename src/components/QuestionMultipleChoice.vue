@@ -5,7 +5,7 @@
     </label>
     <br />
     <div v-for="a in question.answers" :key="a.id">
-      <input
+      <input 
         type="radio"
         :id="a.id"
         :name="question.id"

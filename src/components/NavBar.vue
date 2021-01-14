@@ -4,14 +4,14 @@
       v-for="link in links"
       :key="link.key"
       class="icon-text"
-      @click.native="activeBtn = link.btn"
+      @click.native="$store.state.activeBtn = link.btn"
       :to="link.route"
       ><md-icon
-        :style="activeBtn === link.btn ? 'color: #FAB463' : 'color: white'"
+        :style="$store.state.activeBtn === link.btn ? 'color: #FAB463' : 'color: white'"
         class="icon"
         >{{ link.icon }}</md-icon
       ><span
-        :style="activeBtn === link.btn ? 'color: #FAB463' : 'color: white'"
+        :style="$store.state.activeBtn === link.btn ? 'color: #FAB463' : 'color: white'"
         class="text"
         >{{ link.text }}</span
       ></router-link
@@ -23,7 +23,6 @@
 export default {
   data() {
     return {
-      activeBtn: "btn1",
       links: [
         { key: 1, btn: "btn1", icon: "alarm", route: "/clock", text: "Alarm" },
         {
