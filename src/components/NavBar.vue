@@ -7,11 +7,11 @@
       @click.native="activeBtn = link.btn"
       :to="link.route"
       ><md-icon
-        :style="activeBtn === link.btn ? 'color: #FAB463' : 'color: white'"
+        :style="activeBtn === link.btn ? $store.state.day ? 'color: #FAB463' : 'color: #57AAE0' : 'color: white'"
         class="icon"
         >{{ link.icon }}</md-icon
       ><span
-        :style="activeBtn === link.btn ? 'color: #FAB463' : 'color: white'"
+        :style="activeBtn === link.btn ? $store.state.day ? 'color: #FAB463' : 'color: #57AAE0' : 'color: white'"
         class="text"
         >{{ link.text }}</span
       ></router-link
@@ -23,6 +23,7 @@
 export default {
   data() {
     return {
+      day: true,
       activeBtn: "btn1",
       links: [
         { key: 1, btn: "btn1", icon: "alarm", route: "/clock", text: "Alarm" },
@@ -43,7 +44,7 @@ export default {
         },
       ],
     };
-  },
+  }
 };
 </script>
 

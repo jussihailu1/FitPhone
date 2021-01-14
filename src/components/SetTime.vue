@@ -78,6 +78,9 @@ export default {
   color: #ffffff;
   text-align: center;
 }
+.time {
+  font-size: 3rem;
+}
 .info {
   position: absolute;
   top: 58vh;

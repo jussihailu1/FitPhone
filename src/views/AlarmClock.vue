@@ -1,9 +1,9 @@
 <template>
-  <div class="content" :class="day == true ? 'day' : 'night'">
-    <a class="sun" @click="day = true"><img src="../assets/sun.svg"></a>
-    <a class="moon" @click="day = false"><img src="../assets/moon.svg"></a>
-    <set-time v-show="!day" timeName="Bed time" :day="day"></set-time>
-    <set-time v-show="day" timeName="Wake up time" :day="day"></set-time>
+  <div class="content" :class="$store.state.day ? 'day' : 'night'">
+    <a class="sun" @click="setDay()"><img src="../assets/sun.svg"></a>
+    <a class="moon" @click="setNight()"><img src="../assets/moon.svg"></a>
+    <set-time v-show="!$store.state.day" timeName="Bed time"></set-time>
+    <set-time v-show="$store.state.day" timeName="Wake up time"></set-time>
   </div>
 </template>
 
@@ -21,12 +21,12 @@ export default {
     "set-time": SetTime
   },
   methods: {
-    showSetAlarmButton() {
-      this.showSetAlarm = true;
+    setDay() {
+      this.$store.state.day = true;
     },
-    hideSetAlarmButton() {
-      this.showSetAlarm = false;
-    },
+    setNight() {
+      this.$store.state.day = false;
+    }
   },
 };
 </script>
@@ -54,11 +54,11 @@ export default {
   .sun {
     position: absolute;
     left: 5vw;
-    margin-top: 4vh;
+    margin-top: 6vh;
   }
   .moon {
     position: absolute;
     right: 5vw;
-    margin-top: 4vh;
+    margin-top: 6vh;
   }
 </style>
