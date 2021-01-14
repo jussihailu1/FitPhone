@@ -13,6 +13,7 @@ module.exports = {
         "4": "24px",
         "5": "32px",
         "6": "48px",
+        "max": "max-content"
       },
     },
   },
