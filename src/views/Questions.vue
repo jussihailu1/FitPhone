@@ -1,5 +1,5 @@
 <template>
-  <div class="text-white w-full h-full p-4 bg-bg-black justify-center">
+  <div class="text-white w-full h-full bg-bg-black p-4 justify-center">
     <div :hidden="$store.state.questionsAnswered">
       <div class="text-center text-2xl">Daily Questions</div>
       <br />
@@ -12,7 +12,7 @@
       ></question-multiple-choice>
       <button
         @click="saveQuestions"
-        class="save py-2 px-20 bg-gold rounded-2xl tracking-wider text-xl w-max h-max shadow-md mb-16"
+        class="py-2 m-1 bg-gold rounded-2xl tracking-wider text-xl w-max h-max shadow-md mb-16"
         type="submit"
       >
         Submit
