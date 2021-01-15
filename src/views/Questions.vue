@@ -1,8 +1,7 @@
 <template>
   <div class="text-white w-full h-full bg-bg-black p-4 justify-center">
     <div :hidden="$store.state.questionsAnswered">
-      <div class="text-center text-2xl">Daily Questions</div>
-      <br />
+      <div class="text-center text-2xl mb-6">Daily Questions</div>
       <question-slider v-for="q in rangeQuestions" :key="q.id" :question="q">
       </question-slider>
       <question-multiple-choice

@@ -81,19 +81,12 @@ export default new Vuex.Store({
     activeBtn: "btn1",
     questionsAnswered: false,
     tips: [
-      new Tip(
-        1,
-        "Zet een bluelight filter aan",
-        "De blootstelling aan bluelight in de avonduren kan schadelijk zijn voor je ogen. Daarnaast brengt bluelight je biologische klok in de war wat kan leiden tot slaapproblemen."
-      ),
-      new Tip(
-        2,
-        "Zet je push notificaties uit",
-        "Door push notificaties wordt je veel meer afgeleid door je smartphone"
-      ),
-    ],
+      new Tip(1, "Zet een bluelight filter aan", 
+      "De blootstelling aan bluelight in de avonduren kan schadelijk zijn voor je ogen. Daarnaast brengt bluelight je biologische klok in de war wat kan leiden tot slaapproblemen.",
+      "Uit onze gegevens blijkt dat je gisteravond tot 00:30 actief was op je smartphone, terwijl je aangaf om 23:30 te willen gaan slapen."),
+      new Tip(2, "Zet je push notificaties uit", "Door push notificaties wordt je veel meer afgeleid door je smartphone", "test")
+    ]
   },
   actions: {},
-  mutations: {},
   modules: {},
 });
