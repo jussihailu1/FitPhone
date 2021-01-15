@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <label @click="test">
-      {{ question.question }}
-    </label>
+  <div class="bg-box-black m-1 p-2 rounded-3xl">
+    <div class="text-center">
+      <label @click="test">
+        {{ question.question }}
+      </label>
+    </div>
     <br />
     <v-slider
       @change="answerQuestion"
