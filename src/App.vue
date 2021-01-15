@@ -1,8 +1,8 @@
 <template>
-  <div id="app" class="poppins font-extrathin">
+  <v-app dark id="app" class="poppins font-extrathin">
     <router-view></router-view>
     <nav-bar></nav-bar>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -13,3 +13,13 @@ export default {
   },
 };
 </script>
+
+<style>
+#app {
+  background-color:  #343434;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+</style>

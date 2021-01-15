@@ -4,6 +4,7 @@ import { Clock } from '../models/Clock'
 import { Question } from '../models/Question'
 import { QuestionType } from '../enums/QuestionType'
 import { Answer } from '../models/Answer'
+import { Tip } from '../models/Tip'
 
 Vue.use(Vuex)
 
@@ -70,7 +71,11 @@ export default new Vuex.Store({
     ],
     selectedAnswers: [],
     activeBtn: "btn1",
-    questionsAnswered: false
+    questionsAnswered: false,
+    tips: [
+      new Tip(1, "Zet een bluelight filter aan", "De blootstelling aan bluelight in de avonduren kan schadelijk zijn voor je ogen. Daarnaast brengt bluelight je biologische klok in de war wat kan leiden tot slaapproblemen."),
+      new Tip(2, "Zet je push notificaties uit", "Door push notificaties wordt je veel meer afgeleid door je smartphone")
+    ]
   },
   mutations: {
   },
