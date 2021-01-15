@@ -11,6 +11,9 @@
       :max="max"
       :step="0.01"
       v-model="answerIndex"
+      :color="$store.state.day ? dayColorDark : nightColorDark"
+      :thumb-color="$store.state.day ? dayColorDark : nightColorDark"
+      :track-color="$store.state.day ? dayColor : nightColor"
     ></v-slider>
   </div>
 </template>
@@ -21,6 +24,11 @@ import { Question } from "../models/Question";
 export default {
   data() {
     return {
+      dayColorDark: "#ff9e2e",
+      dayColor: "#ffbe73",
+      nightColorDark: "#184392",
+      nightColor: "#57AAE0",
+
       answerIndex: 3,
       min: this.question.answers[0].value,
       max: this.question.answers[this.question.answers.length - 1].value,
@@ -45,3 +53,6 @@ export default {
   },
 };
 </script>
+
+<style>
+</style>
