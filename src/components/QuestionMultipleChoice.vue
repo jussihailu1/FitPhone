@@ -1,18 +1,24 @@
 <template>
-  <div>
-    <label @click="test">
-      {{ question.question }}
-    </label>
+  <div class="bg-gray-800 m-1 p-1 rounded-3xl">
+    <div class="text-center">
+      <label @click="test" class="">
+        {{ question.question }}
+      </label>
+    </div>
+
     <br />
-    <div v-for="a in question.answers" :key="a.id">
-      <input 
+    <div class="p-1" v-for="a in question.answers" :key="a.id">
+      <input
         type="radio"
         :id="a.id"
         :name="question.id"
         :value="a"
         v-model="answer"
       />
-      <label @click="setAnswer(a)" :for="a.id">{{ a.value }}</label>
+
+      <label class="pl-1" @click="setAnswer(a)" :for="a.id">{{
+        a.value
+      }}</label>
       <br />
     </div>
     <br />
@@ -42,3 +48,6 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+</style>
