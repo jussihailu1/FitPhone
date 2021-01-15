@@ -1,9 +1,10 @@
 <template>
-  <div class="main w-full h-full bg-bg-black">
+  <div class="text-white main w-full h-full bg-bg-black p-4">
+    <div class="text-center text-2xl mb-6">Daily Tips</div>
     <div v-for="selectedAnswer in selectedAnswers" :key="selectedAnswer.id">
       <p>{{ selectedAnswer.tip }}</p>
     </div>
-    <div class="tip" v-for="tip in tips" :key="tip.id">
+    <div class="bg-box-black m-1 p-3 pt-0 mb-6 rounded-3xl" v-for="tip in tips" :key="tip.id"><!-- <div class="tip" v-for="tip in tips" :key="tip.id"> -->
       <div class="title-btn">
         <h1 :class="$store.state.day ? 'text-gold text-xl' : 'text-blue text-xl'">{{tip.title}}</h1>
         <button class="btn-info" v-show="!tip.showReason" @click="tip.showReason = true"><md-icon :style="$store.state.day ? 'color: #FAB463;' : 'color: #88B5D5;'">info</md-icon></button>

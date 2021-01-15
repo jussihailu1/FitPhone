@@ -1,8 +1,7 @@
 <template>
   <div class="text-white w-full h-full bg-bg-black p-4 justify-center">
     <div :hidden="$store.state.questionsAnswered">
-      <div class="text-center text-2xl">Daily Questions</div>
-      <br />
+      <div class="text-center text-2xl mb-6">Daily Questions</div>
       <question-slider v-for="q in rangeQuestions" :key="q.id" :question="q">
       </question-slider>
       <question-multiple-choice
@@ -12,9 +11,9 @@
       ></question-multiple-choice>
       <button
         @click="saveQuestion"
-        class="py-2 px-20 bg-gold rounded-2xl tracking-wider text-xl w-max h-max shadow-md mb-16"
+        class="py-2 m-1 bg-gold rounded-2xl tracking-wider text-xl w-max h-max shadow-md mb-16 text-bg-black"
         type="submit"
-        style="margin-left: 50px"
+        style="width: 83vw;"
       >
         Submit
       </button>
