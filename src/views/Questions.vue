@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full p-5 bg-blue-300 justify-center">
+  <div class="p-2 bg-gray-900 justify-center">
     <h1>Questions</h1>
     <br />
     <div class="">

@@ -1,20 +1,30 @@
 <template>
   <div id="app" class="poppins font-extrathin">
-    <router-view></router-view>
-    <!-- <div class="p-16">
-      <Button buttonText="Set Alarm" />
-    </div> -->
-    <nav-bar></nav-bar>
+    <landing v-if="$store.state.landing"></landing>
+    <transition name="fade" mode="out-in">
+      <router-view v-if="!$store.state.landing" />
+    </transition>
+    <nav-bar v-if="!$store.state.landing"></nav-bar>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
-// import Button from "./components/Button.vue";
+import Landingpage from "./views/Landingpage";
 export default {
   components: {
     "nav-bar": NavBar,
-    // Button,
+    landing: Landingpage,
+  },
+  data() {
+    return {
+      landing: this.$store.state.landing,
+    };
+  },
+  methods: {},
+  mounted() {
+    console.log(this.landing);
   },
 };
 </script>
+
