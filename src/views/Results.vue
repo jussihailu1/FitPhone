@@ -1,9 +1,7 @@
 <template>
-  <div>
+  <div class="w-full h-full bg-bg-black">
     <h1 @click="test">Results</h1>
     <br />
-
-    
   </div>
 </template>
 

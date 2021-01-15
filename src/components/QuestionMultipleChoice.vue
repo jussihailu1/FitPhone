@@ -8,7 +8,11 @@
 
     <br />
     <div v-for="a in question.answers" :key="a.id">
-      <label :class="$store.state.day ? 'container day' : 'container night'" @click="setAnswer(a)" :for="a.id">
+      <label
+        :class="$store.state.day ? 'container day' : 'container night'"
+        @click="setAnswer(a)"
+        :for="a.id"
+      >
         {{ a.value }}
         <input
           class="checkbox"
@@ -69,7 +73,7 @@ export default {
 /* Create a custom checkbox */
 .checkmark {
   position: absolute;
-  top: 0.5rem;
+  top: 0.18rem;
   left: 0.5rem;
   height: 1rem;
   width: 1rem;
@@ -79,11 +83,11 @@ export default {
 
 /* When the checkbox is checked, add a blue background */
 .container.day input:checked ~ .checkmark {
-  background-color:#ff9e2e;
+  background-color: #ff9e2e;
 }
 
 /* When the checkbox is checked, add a gold background */
 .container.night input:checked ~ .checkmark {
-  background-color:#416cbb;
+  background-color: #416cbb;
 }
 </style>

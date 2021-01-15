@@ -1,9 +1,11 @@
 <template>
-  <div class="content" :class="$store.state.day ? 'day' : 'night'">
-    <a class="sun" @click="setDay()"><img src="../assets/sun.svg" /></a>
-    <a class="moon" @click="setNight()"><img src="../assets/moon.svg" /></a>
-    <set-time v-show="!$store.state.day" timeName="Bed time"></set-time>
-    <set-time v-show="$store.state.day" timeName="Wake up time"></set-time>
+  <div class="">
+    <div class="content" :class="$store.state.day ? 'day' : 'night'">
+      <a class="sun" @click="setDay()"><img src="../assets/sun.svg" /></a>
+      <a class="moon" @click="setNight()"><img src="../assets/moon.svg" /></a>
+      <set-time v-show="!$store.state.day" timeName="Bed time"></set-time>
+      <set-time v-show="$store.state.day" timeName="Wake up time"></set-time>
+    </div>
   </div>
 </template>
 
