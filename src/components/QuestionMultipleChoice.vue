@@ -1,8 +1,11 @@
 <template>
-  <div>
-    <label @click="test">
-      {{ question.question }}
-    </label>
+  <div class="bg-gray-800 m-1 p-1 rounded-3xl">
+    <div class="text-center">
+      <label @click="test" class="">
+        {{ question.question }}
+      </label>
+    </div>
+
     <br />
     <div v-for="a in question.answers" :key="a.id">
       <label :class="$store.state.day ? 'container day' : 'container night'" @click="setAnswer(a)" :for="a.id">
@@ -47,7 +50,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .container {
   display: block;
   position: relative;

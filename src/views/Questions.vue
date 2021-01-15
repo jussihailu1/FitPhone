@@ -17,7 +17,9 @@
       </div>
     </div>
     <div :hidden="!$store.state.questionsAnswered">
-      <p style="text-align: center">you have answered all the questions for today</p>
+      <p style="text-align: center">
+        you have answered all the questions for today
+      </p>
     </div>
   </div>
 </template>
@@ -44,7 +46,7 @@ export default {
       multipleChoiceQuestions: store.state.questions.filter(
         (q) => q.questionType == QuestionType.MultipleChoice
       ),
-      slider: [10, 100]
+      slider: [10, 100],
     };
   },
   methods: {
