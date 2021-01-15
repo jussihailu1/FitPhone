@@ -2,7 +2,7 @@
   <div class="landing flex align-center justify-center">
     <button
       @click="start"
-      class="save py-2 px-20 bg-gold rounded-2xl tracking-wider text-xl w-max h-max shadow-md mt-80"
+      class="save py-2 px-20 bg-gold rounded-2xl tracking-wider text-xl w-max h-max shadow-md mb-16"
       type="submit"
     >
       Let's begin

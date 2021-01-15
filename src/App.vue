@@ -28,7 +28,7 @@ export default {
   background-color: #343434;
 }
 * {
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
 }
 </style>

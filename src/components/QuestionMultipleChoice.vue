@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-green-200 m-1 p-1 rounded-3xl">
+  <div class="bg-box-black m-1 p-1 rounded-3xl">
     <div class="text-center">
       <label @click="test" class="">
         {{ question.question }}

@@ -5,7 +5,9 @@ module.exports = {
     extend: {
       colors: {
         gold: "#FAB463",
-        blue: "#88B5D5"
+        blue: "#88B5D5",
+        "box-black": "#2c2c2c",
+        "bg-black": "#121212",
       },
       spacing: {
         "1": "8px",
@@ -14,7 +16,7 @@ module.exports = {
         "4": "24px",
         "5": "32px",
         "6": "48px",
-        "max": "max-content"
+        max: "max-content",
       },
     },
   },

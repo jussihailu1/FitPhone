@@ -1,20 +1,22 @@
 <template>
-  <div class="w-screen h-screen p-5 bg-blue-300 justify-center">
+  <div class="text-white w-full h-full p-4 bg-bg-black justify-center">
     <div :hidden="$store.state.questionsAnswered">
-      <h1>Questions</h1>
+      <div class="text-center text-2xl">Daily Questions</div>
       <br />
-      <div class="">
-        <question-slider v-for="q in rangeQuestions" :key="q.id" :question="q">
-        </question-slider>
-        <question-multiple-choice
-          v-for="q in multipleChoiceQuestions"
-          :key="q.id"
-          :question="q"
-        ></question-multiple-choice>
-      </div>
-      <div @click="saveQuestions">
-        <Button buttonText="Done" />
-      </div>
+      <question-slider v-for="q in rangeQuestions" :key="q.id" :question="q">
+      </question-slider>
+      <question-multiple-choice
+        v-for="q in multipleChoiceQuestions"
+        :key="q.id"
+        :question="q"
+      ></question-multiple-choice>
+      <button
+        @click="saveQuestion"
+        class="save py-2 px-20 bg-gold rounded-2xl tracking-wider text-xl w-max h-max shadow-md mb-16"
+        type="submit"
+      >
+        Submit
+      </button>
     </div>
     <div :hidden="!$store.state.questionsAnswered">
       <p style="text-align: center">
@@ -28,14 +30,12 @@
 import QuestionSlider from "../components/QuestionSlider";
 import QuestionMultipleChoice from "../components/QuestionMultipleChoice";
 import { QuestionType } from "../enums/QuestionType";
-import Button from "../components/Button";
 import store from "../store";
 
 export default {
   components: {
     "question-slider": QuestionSlider,
     "question-multiple-choice": QuestionMultipleChoice,
-    Button,
   },
   data() {
     return {
