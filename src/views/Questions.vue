@@ -44,6 +44,7 @@ export default {
       multipleChoiceQuestions: store.state.questions.filter(
         (q) => q.questionType == QuestionType.MultipleChoice
       ),
+      slider: [10, 100]
     };
   },
   methods: {

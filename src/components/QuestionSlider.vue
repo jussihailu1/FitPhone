@@ -4,14 +4,14 @@
       {{ question.question }}
     </label>
     <br />
-    <input
+    <v-slider
       @change="answerQuestion"
       type="range"
       :min="min"
       :max="max"
       :step="0.01"
       v-model="answerIndex"
-    />
+    ></v-slider>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
-  <div class="info">
-    <div>
+  <div>
+    <div class="information" v-show="!showTimePicker">
       <h1 class="time" @click="showTimePicker = true">{{ time }}</h1>
       <h1 class="date">{{ date }}</h1>
       <h1 class="location">{{ this.location }}</h1>
@@ -13,6 +13,7 @@
       class="time-picker"
       :event-color="$store.state.day ? 'bg-gold' : 'bg-blue'"
       :dark="true"
+      full-width
     >
       <Button
         buttonText="Save"
@@ -80,17 +81,21 @@ export default {
 .time {
   font-size: 3rem;
 }
-.info {
+.information {
   position: absolute;
   top: 58vh;
   left: 50%;
   transform: translateX(-50%);
 }
 .time-picker {
-  margin-top: -50vh;
   border: none !important;
+  margin-top: 20vh;
 }
 .btn-save {
-  margin: 0 auto 0 auto;
+  margin: 20px auto 20px auto;
 }
+/* .v-time-picker-clock__container,
+.v-picker__body {
+  width: 100vw !important;
+} */
 </style>

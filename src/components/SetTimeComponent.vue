@@ -7,7 +7,7 @@
     </div>
     <button @click="getDate" class="save py-2 px-16 bg-gold rounded-2xl tracking-wider text-xl" type="submit">Save {{timeName}}</button>
     <v-time-picker v-if="showTimePicker" v-model="time" color="#000" format="24hr">
-        <Button buttonText="save" @click.native="save()"></Button>
+        <Button buttonText="save" @click.native="setTime()"></Button>
     </v-time-picker>
   </div>
 </template>
@@ -24,21 +24,12 @@ export default {
     };
   },
   methods: {
-    test() {
-      console.log(this.$store.state.clock.bedTime);
-    },
-    save() {
-        showTimePicker = false;
-        console.log(time);
-        //this.setTime();
-    },
     setTime() {
-      // let time = this.hour + ":" + this.minute;
-      console.log(time);
+      this.showTimePicker = false;
       if (this.timeName == "Bed time") {
-        this.$store.state.clock.setBedTime(time);
+        this.$store.state.clock.setBedTime(this.time);
       } else {
-        this.$store.state.clock.setWakeUpTime(time);
+        this.$store.state.clock.setWakeUpTime(this.time);
       }
       console.log(this.$store.state.clock.bedTime);
     },

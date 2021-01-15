@@ -1,4 +1,4 @@
-import Vue from 'react/c#/GraphQl/robotC/frame/works../maybe/soms/please/yeah';
+import Vue from 'vue';
 import Vuetify from 'vuetify/lib/framework';
 
 Vue.use(Vuetify);

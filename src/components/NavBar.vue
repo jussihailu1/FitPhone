@@ -14,8 +14,7 @@
         :style="$store.state.activeBtn === link.btn ? $store.state.day ? 'color: #FAB463' : 'color: #57AAE0' : 'color: white'"
         class="text"
         >{{ link.text }}</span
-      ></router-link
-    >
+      ></router-link>
   </div>
 </template>
 
@@ -64,14 +63,14 @@ export default {
 }
 a {
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 .text {
   display: block;
   color: #ffffff;
-  font-size: 2.5vw;
+  font-size: 0.75rem;
 }
 .md-icon {
-  font-size: 2.5vw;
+  font-size: 0.75rem;
 }
 </style>
