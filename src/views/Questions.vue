@@ -19,10 +19,12 @@
       </button>
       </div>
     </div>
-    <div :hidden="!$store.state.questionsAnswered">
-      <p style="text-align: center">
-        you have answered all the questions for today
-      </p>
+    <div class="yeah" :hidden="!$store.state.questionsAnswered">
+      <p class="text-2xl text-center">You have answered all the questions for today!</p>
+      <br>
+      <br>
+      <br>
+      <img style="margin: auto;" src="../assets/Blikje in de water.gif" alt="">
     </div>
   </div>
 </template>
@@ -75,3 +77,14 @@ export default {
   },
 };
 </script>
+
+<style scope>
+.yeah {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -69%);
+  width: 90%;
+  text-align: center;
+}
+</style>

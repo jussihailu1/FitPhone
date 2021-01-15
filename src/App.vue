@@ -18,7 +18,7 @@ export default {
   },
   methods: {},
   mounted() {
-    console.log(this.landing);
+    this.$router.push('/');
   },
 };
 </script>
