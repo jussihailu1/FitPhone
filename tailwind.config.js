@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         gold: "#FAB463",
+        blue: "#88B5D5"
       },
       spacing: {
         "1": "8px",

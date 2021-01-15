@@ -1,11 +1,11 @@
 <template>
-  <div id="app" class="poppins font-extrathin">
+  <v-app dark id="app" class="poppins font-extrathin">
     <landing v-if="$store.state.landing"></landing>
     <transition name="fade" mode="out-in">
       <router-view v-if="!$store.state.landing" />
     </transition>
     <nav-bar v-if="!$store.state.landing"></nav-bar>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -16,11 +16,6 @@ export default {
     "nav-bar": NavBar,
     landing: Landingpage,
   },
-  data() {
-    return {
-      landing: this.$store.state.landing,
-    };
-  },
   methods: {},
   mounted() {
     console.log(this.landing);
@@ -28,3 +23,12 @@ export default {
 };
 </script>
 
+<style>
+#app {
+  background-color: #343434;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+</style>

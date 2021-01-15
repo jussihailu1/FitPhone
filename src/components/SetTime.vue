@@ -1,6 +1,6 @@
 <template>
-  <div class="info">
-    <div>
+  <div>
+    <div class="information" v-show="!showTimePicker">
       <h1 class="time" @click="showTimePicker = true">{{ time }}</h1>
       <h1 class="date">{{ date }}</h1>
       <h1 class="location">{{ this.location }}</h1>
@@ -8,15 +8,18 @@
     <v-time-picker
       v-if="showTimePicker"
       v-model="time"
-      color="#000"
+      :color="$store.state.day ? 'bg-gold' : 'bg-blue'"
       format="24hr"
+      class="time-picker"
+      :event-color="$store.state.day ? 'bg-gold' : 'bg-blue'"
+      :dark="true"
+      full-width
     >
       <Button
-        buttonText="save"
-        class="p-12 bg-gold"
+        buttonText="Save"
+        :class="$store.state.day ? 'bg-gold p-12 btn-save' : 'bg-blue p-12 btn-save'"
         @click.native="saveTime()"
-        >save</Button
-      >
+        ></Button>
     </v-time-picker>
   </div>
 </template>
@@ -53,14 +56,14 @@ export default {
     },
     getDate() {
       let d = new Date();
-      let ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(d);
+      let nr = new Intl.DateTimeFormat("en", { day: "numeric" }).format(d);
       let mo = new Intl.DateTimeFormat("en", { month: "long" }).format(d);
-      let da = new Intl.DateTimeFormat("en", { weekday: "short" }).format(d);
-      return `${da}-${mo}-${ye}`;
+      let da = new Intl.DateTimeFormat("en", { weekday: "long" }).format(d);
+      return `${da} ${mo} ${nr}`;
     }
   },
   props: {
-    timeName: String,
+    timeName: String
   },
   components: {
     Button: Button,
@@ -75,10 +78,24 @@ export default {
   color: #ffffff;
   text-align: center;
 }
-.info {
+.time {
+  font-size: 3rem;
+}
+.information {
   position: absolute;
   top: 58vh;
   left: 50%;
   transform: translateX(-50%);
 }
+.time-picker {
+  border: none !important;
+  margin-top: 20vh;
+}
+.btn-save {
+  margin: 20px auto 20px auto;
+}
+/* .v-time-picker-clock__container,
+.v-picker__body {
+  width: 100vw !important;
+} */
 </style>

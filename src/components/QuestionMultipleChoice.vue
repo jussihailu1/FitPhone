@@ -7,11 +7,7 @@
     </div>
 
     <br />
-    <div
-      class="custom-grid px-1 py-1"
-      v-for="a in question.answers"
-      :key="a.id"
-    >
+    <div class="p-1" v-for="a in question.answers" :key="a.id">
       <input
         type="radio"
         :id="a.id"

@@ -1,6 +1,6 @@
 <template>
   <button
-    class="py-2 px-16 bg-gold rounded-2xl tracking-wider text-xl"
+    class="py-2 px-16 rounded-2xl tracking-wider text-xl"
     type="submit"
   >
     {{ buttonText }}
@@ -10,7 +10,7 @@
 <script>
 export default {
   props: {
-    buttonText: String,
+    buttonText: String
   },
 };
 </script>

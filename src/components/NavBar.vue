@@ -4,18 +4,17 @@
       v-for="link in links"
       :key="link.key"
       class="icon-text"
-      @click.native="activeBtn = link.btn"
+      @click.native="$store.state.activeBtn = link.btn"
       :to="link.route"
       ><md-icon
-        :style="activeBtn === link.btn ? 'color: #FAB463' : 'color: white'"
+        :style="$store.state.activeBtn === link.btn ? $store.state.day ? 'color: #FAB463' : 'color: #57AAE0' : 'color: white'"
         class="icon"
         >{{ link.icon }}</md-icon
       ><span
-        :style="activeBtn === link.btn ? 'color: #FAB463' : 'color: white'"
+        :style="$store.state.activeBtn === link.btn ? $store.state.day ? 'color: #FAB463' : 'color: #57AAE0' : 'color: white'"
         class="text"
         >{{ link.text }}</span
-      ></router-link
-    >
+      ></router-link>
   </div>
 </template>
 
@@ -23,7 +22,6 @@
 export default {
   data() {
     return {
-      activeBtn: "btn1",
       links: [
         { key: 1, btn: "btn1", icon: "alarm", route: "/clock", text: "Alarm" },
         {
@@ -43,7 +41,7 @@ export default {
         },
       ],
     };
-  },
+  }
 };
 </script>
 
@@ -65,14 +63,14 @@ export default {
 }
 a {
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 .text {
   display: block;
   color: #ffffff;
-  font-size: 2.5vw;
+  font-size: 0.75rem;
 }
 .md-icon {
-  font-size: 2.5vw;
+  font-size: 0.75rem;
 }
 </style>

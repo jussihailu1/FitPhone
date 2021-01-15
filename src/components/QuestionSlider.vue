@@ -1,35 +1,17 @@
 <template>
   <div>
-    <div class="text-center">
-      <label @load="test">
-        {{ question.question }}
-      </label>
-    </div>
+    <label @click="test">
+      {{ question.question }}
+    </label>
     <br />
-    <div>
-      <v-slider
-        :min="min"
-        :max="max"
-        step="1"
-        v-model="answer"
-        :thumb-color="'#57aae0'"
-        thumb-label="true"
-        thumb-size="0"
-        :color="'#57aae0'"
-        :track-color="'#57aae0'"
-        @mouseup="setAnswer"
-      >
-      </v-slider>
-    </div>
-
-    <!-- <input
-      @mouseup="setAnswer"
+    <v-slider
+      @change="answerQuestion"
       type="range"
       :min="min"
       :max="max"
-      :step="1"
-      v-model="answer"
-    /> -->
+      :step="0.01"
+      v-model="answerIndex"
+    ></v-slider>
   </div>
 </template>
 
@@ -39,7 +21,7 @@ import { Question } from "../models/Question";
 export default {
   data() {
     return {
-      answer: 1,
+      answerIndex: 3,
       min: this.question.answers[0].value,
       max: this.question.answers[this.question.answers.length - 1].value,
     };
@@ -49,15 +31,17 @@ export default {
   },
   methods: {
     test() {
-      console.log(this.answer);
+      console.log(this.question);
+      console.log(this.question.selectedAnswer);
     },
-    setAnswer() {
-      this.question.selectedAnswer = this.answer;
-      console.log(this.answer.value);
+    answerQuestion() {
+      this.question.selectedAnswer = this.question.answers[
+        Math.round(this.answerIndex) - 1
+      ];
     },
   },
   mounted() {
-    this.setAnswer();
+    this.answerQuestion();
   },
 };
 </script>
