@@ -9,14 +9,15 @@
         :key="q.id"
         :question="q"
       ></question-multiple-choice>
+      <div class="m-1 mb-6">
       <button
-        @click="saveQuestion"
-        class="py-2 m-1 bg-gold rounded-2xl tracking-wider text-xl w-max h-max shadow-md mb-16 text-bg-black"
+        @click="saveQuestions"
+        class="py-2 bg-gold rounded-2xl tracking-wider text-xl w-full h-max shadow-md mb-16 text-bg-black"
         type="submit"
-        style="width: 83vw;"
       >
         Submit
       </button>
+      </div>
     </div>
     <div :hidden="!$store.state.questionsAnswered">
       <p style="text-align: center">

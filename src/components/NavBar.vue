@@ -31,11 +31,11 @@ export default {
           route: "/results",
           text: "Results",
         },
-        { key: 3, btn: "btn3", icon: "alarm", route: "/tips", text: "Tips" },
+        { key: 3, btn: "btn3", icon: "emoji_objects", route: "/tips", text: "Tips" },
         {
           key: 4,
           btn: "btn4",
-          icon: "alarm",
+          icon: "help",
           route: "/questions",
           text: "Questions",
         },
