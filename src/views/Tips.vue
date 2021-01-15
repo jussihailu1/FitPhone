@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="main w-full h-full bg-bg-black">
     <div v-for="selectedAnswer in selectedAnswers" :key="selectedAnswer.id">
       <p>{{ selectedAnswer.tip }}</p>
     </div>
@@ -17,7 +17,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {

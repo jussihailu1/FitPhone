@@ -10,6 +10,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    landing: true,
     day: true,
     clock: new Clock(),
     questions: [
@@ -63,6 +64,18 @@ export default new Vuex.Store({
           new Answer("Other", "Go to bed you benchod."),
         ]
       ),
+      new Question(
+        5,
+        "What kept you from falling asleep?",
+        QuestionType.MultipleChoice,
+        [
+          new Answer("Youtube", "Go to bed you motherchod."),
+          new Answer("Netflix", "Go to bed you honkerchonkor."),
+          new Answer("Chatting", "Go to bed you hippetyhop."),
+          new Answer("Gaming", "Go to bed you haryupke."),
+          new Answer("Other", "Go to bed you benchod."),
+        ]
+      ),
     ],
     selectedAnswers: [],
     activeBtn: "btn1",
@@ -74,7 +87,10 @@ export default new Vuex.Store({
       new Tip(2, "Zet je push notificaties uit", "Door push notificaties wordt je veel meer afgeleid door je smartphone", "test")
     ]
   },
-  mutations: {},
   actions: {},
+<<<<<<< HEAD
+=======
+  mutations: {},
+>>>>>>> 40b16a8fb2bf64e84c2548d50fa9e83a099f0fe3
   modules: {},
 });
