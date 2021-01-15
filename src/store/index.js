@@ -14,14 +14,14 @@ export default new Vuex.Store({
     questions: [
       new Question(
         0,
-        "How well did you sleep?",
+        "How productive were you today?",
         QuestionType.Range,
         [
-          new Answer(1, "Go to bed you motherchod."),
-          new Answer(2, "Go to bed you honkerchonkor."),
-          new Answer(3, "Go to bed you hippetyhop."),
-          new Answer(4, "Go to bed you haryupke."),
-          new Answer(5, "Go to bed you benchod."),
+          new Answer(1, "Start your day without your phone."),
+          new Answer(2, "Set time limits on apps."),
+          new Answer(3, "Wear a watch to see what time it is."),
+          new Answer(4, null),
+          new Answer(5, null),
         ]),
       new Question(
         1,

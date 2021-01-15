@@ -9,7 +9,7 @@
       type="range"
       :min="min"
       :max="max"
-      :step="1"
+      :step="0.01"
       v-model="answerIndex"
     />
   </div>
@@ -36,7 +36,7 @@ export default {
     },
     answerQuestion() {
       this.question.selectedAnswer = this.question.answers[
-        this.answerIndex - 1
+        Math.round(this.answerIndex) - 1
       ];
     },
   },
