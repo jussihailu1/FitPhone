@@ -11,17 +11,19 @@
         :question="q"
       ></question-multiple-choice>
       <button
-        @click="saveQuestion"
+        @click="saveQuestions"
         class="save py-2 px-20 bg-gold rounded-2xl tracking-wider text-xl w-max h-max shadow-md mb-16"
         type="submit"
       >
         Submit
       </button>
     </div>
-    <div :hidden="!$store.state.questionsAnswered">
-      <p style="text-align: center">
-        you have answered all the questions for today
-      </p>
+    <div class="yeah" :hidden="!$store.state.questionsAnswered">
+      <p class="text-2xl text-center">You have answered all the questions for today!</p>
+      <br>
+      <br>
+      <br>
+      <img style="margin: auto;" src="../assets/Blikje in de water.gif" alt="">
     </div>
   </div>
 </template>
@@ -74,3 +76,14 @@ export default {
   },
 };
 </script>
+
+<style scope>
+.yeah {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -69%);
+  width: 90%;
+  text-align: center;
+}
+</style>

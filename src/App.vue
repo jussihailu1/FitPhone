@@ -18,7 +18,7 @@ export default {
   },
   methods: {},
   mounted() {
-    console.log(this.landing);
+    this.$router.push('/');
   },
 };
 </script>
@@ -26,9 +26,5 @@ export default {
 <style>
 #app {
   background-color: #343434;
-}
-* {
-  /* margin: 0;
-  padding: 0; */
 }
 </style>
