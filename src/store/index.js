@@ -88,9 +88,5 @@ export default new Vuex.Store({
     ]
   },
   actions: {},
-<<<<<<< HEAD
-=======
-  mutations: {},
->>>>>>> 40b16a8fb2bf64e84c2548d50fa9e83a099f0fe3
   modules: {},
 });
