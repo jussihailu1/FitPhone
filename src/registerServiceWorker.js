@@ -30,3 +30,28 @@ if (process.env.NODE_ENV === 'production') {
     }
   })
 }
+
+var CACHE_NAME = 'FitPhone-cache-v1';
+var urlsToCache = [
+  '/',
+  '/favicon.ico',
+  '/index.html',
+  '/manifest.json',
+  '/service-worker.js',
+  '/precache-manifest.fe01a7bbdf217a52dd108c7ce47ce70e.js',
+  '/js/app.0cc9776b.js',
+  '/js/chunk-vendors.d1f78ff5.js',
+  '/css/app.3824285f.css',
+  '/css/chunk-vendors.7dfe9cf6.css',
+  '/fonts/Poppins-Regular.de2dd933.otf'
+];
+
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        // Open a cache and cache our files
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
