@@ -1,11 +1,10 @@
 <template>
   <div class="bg-box-black m-1 p-2 rounded-3xl mb-6">
-    <div class="text-center">
+    <div class="text-lg ml-2" :class="$store.state.day ? 'text-gold' : 'text-blue'">
       <label @click="test">
         {{ question.question }}
       </label>
     </div>
-    <br />
     <v-slider
       @change="answerQuestion"
       type="range"
@@ -17,6 +16,10 @@
       :thumb-color="$store.state.day ? dayColorDark : nightColorDark"
       :track-color="$store.state.day ? dayColor : nightColor"
     ></v-slider>
+    <div class="hint">
+      <p class="ml-2 text-xs">{{question.leftValue}}</p>
+      <p class="mr-2 text-xs">{{question.rightValue}}</p>
+    </div>
   </div>
 </template>
 
@@ -55,3 +58,14 @@ export default {
   },
 };
 </script>
+
+<style>
+  .hint {
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  .v-messages {
+    min-height: 0px !important;
+  }
+</style>

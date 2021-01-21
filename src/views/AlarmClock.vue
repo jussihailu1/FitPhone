@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="bg-black">
     <div class="content" :class="$store.state.day ? 'day' : 'night'">
       <a class="sun" @click="setDay()"><img src="../assets/sun.svg" /></a>
       <a class="moon" @click="setNight()"><img src="../assets/moon.svg" /></a>
@@ -52,6 +52,7 @@ export default {
   background-size: 100vw;
   height: 100vh;
   width: 100vw;
+  margin-top: -1px;
 }
 .sun {
   position: absolute;

@@ -12,11 +12,10 @@
       <div class="m-1 mb-6">
       <button
         @click="saveQuestions"
-        class="py-2 bg-gold rounded-2xl tracking-wider text-xl w-full h-max shadow-md mb-16 text-bg-black"
+        class="py-2 rounded-2xl tracking-wider text-xl w-full h-max shadow-md mb-16 text-bg-black"
+        :class="$store.state.day ? 'bg-gold' : 'bg-blue'"
         type="submit"
-      >
-        Submit
-      </button>
+      >Submit</button>
       </div>
     </div>
     <div class="yeah" :hidden="!$store.state.questionsAnswered">
