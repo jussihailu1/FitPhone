@@ -1,6 +1,6 @@
 <template>
   <div class="bg-box-black m-1 p-1 rounded-3xl  mb-6">
-    <div class="text-center">
+    <div class="text-lg ml-2" :class="$store.state.day ? 'text-gold' : 'text-blue'">
       <label @click="test" class="">
         {{ question.question }}
       </label>

@@ -2,8 +2,8 @@
   <div>
     <div class="information" v-show="!showTimePicker">
       <h1 class="time" @click="showTimePicker = true">{{ time }}</h1>
-      <h1 class="date">{{ date }}</h1>
-      <h1 class="location">{{ this.location }}</h1>
+      <h1 class="date">{{ $store.state.day ? tommorow : date }}</h1>
+      <h1 class="location">{{ location }}</h1>
     </div>
     <v-time-picker
       v-if="showTimePicker"
@@ -31,6 +31,7 @@ export default {
     return {
       time: new Date().toLocaleTimeString().slice(0,5),
       date: this.getDate(),
+      tommorow: this.getTommorow(),
       location: "Eindhoven",
       showTimePicker: false,
     };
@@ -56,6 +57,14 @@ export default {
     },
     getDate() {
       let d = new Date();
+      let nr = new Intl.DateTimeFormat("en", { day: "numeric" }).format(d);
+      let mo = new Intl.DateTimeFormat("en", { month: "long" }).format(d);
+      let da = new Intl.DateTimeFormat("en", { weekday: "long" }).format(d);
+      return `${da} ${mo} ${nr}`;
+    },
+    getTommorow() {
+      let d = new Date();
+      d.setDate(d.getDate() + 1);
       let nr = new Intl.DateTimeFormat("en", { day: "numeric" }).format(d);
       let mo = new Intl.DateTimeFormat("en", { month: "long" }).format(d);
       let da = new Intl.DateTimeFormat("en", { weekday: "long" }).format(d);

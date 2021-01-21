@@ -13,6 +13,13 @@ export default new Vuex.Store({
     landing: true,
     day: true,
     clock: new Clock(),
+    tips: [
+      new Tip(1, "Turn on bluelight filter", 
+      "The exposure of bluelight can be harmfull to your eyes. In addition, bluelight confuses your biological clock which can lead to sleep problems.",
+      "Last night you were active on your smartphone until 00:30, while you indicated that you wanted to go to sleep at 23:30."),
+      new Tip(2, "Turn off notifications", "Push notifications is the main source off your distraction, turn them off so you won't get distracted as much.", "Yesterday you picked up your phone 150 times. This is more than your daily average."),
+      new Tip(3, "Set a time limit on YouTube", "Sometimes you lose track of time when you're having fun. A time limit will help you better keep track of how much time you spend in a particular app.", "Yesterday you spent most of your screentime in YouTube.")
+    ],
     questions: [
       new Question(0, "How productive were you today?", QuestionType.Range, [
         new Answer(1, "Start your day without your phone."),
@@ -20,7 +27,9 @@ export default new Vuex.Store({
         new Answer(3, "Wear a watch to see what time it is."),
         new Answer(4, null),
         new Answer(5, null),
-      ]),
+      ],
+      "Not productive",
+      "Very productive"),
       new Question(
         1,
         "How much energy did you have today?",
@@ -31,15 +40,19 @@ export default new Vuex.Store({
           new Answer(3, "Go to bed you hippetyhop."),
           new Answer(4, "Go to bed you haryupke."),
           new Answer(5, "Go to bed you benchod."),
-        ]
-      ),
-      new Question(2, "How difficult was it to wake up?", QuestionType.Range, [
+        ],
+        "Not much",
+        "A lot"),
+      new Question(2, "How difficult was it to wake up?",
+      QuestionType.Range, [
         new Answer(1, "Go to bed you motherchod."),
         new Answer(2, "Go to bed you honkerchonkor."),
         new Answer(3, "Go to bed you hippetyhop."),
         new Answer(4, "Go to bed you haryupke."),
         new Answer(5, "Go to bed you benchod."),
-      ]),
+      ],
+      "Easy",
+      "Difficult"),
       new Question(
         3,
         "Why do you fail to sleep on time?",
@@ -50,8 +63,7 @@ export default new Vuex.Store({
           new Answer("Chatting", "Go to bed you hippetyhop."),
           new Answer("Gaming", "Go to bed you haryupke."),
           new Answer("Other", "Go to bed you benchod."),
-        ]
-      ),
+        ]),
       new Question(
         4,
         "What kept you from falling asleep?",
@@ -80,12 +92,6 @@ export default new Vuex.Store({
     selectedAnswers: [],
     activeBtn: "btn1",
     questionsAnswered: false,
-    tips: [
-      new Tip(1, "Zet een bluelight filter aan", 
-      "De blootstelling aan bluelight in de avonduren kan schadelijk zijn voor je ogen. Daarnaast brengt bluelight je biologische klok in de war wat kan leiden tot slaapproblemen.",
-      "Uit onze gegevens blijkt dat je gisteravond tot 00:30 actief was op je smartphone, terwijl je aangaf om 23:30 te willen gaan slapen."),
-      new Tip(2, "Zet je push notificaties uit", "Door push notificaties wordt je veel meer afgeleid door je smartphone", "test")
-    ]
   },
   actions: {},
   modules: {},

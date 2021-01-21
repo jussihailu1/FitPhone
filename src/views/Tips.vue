@@ -8,7 +8,7 @@
         <button class="btn-info" v-show="tip.showReason" @click="tip.showReason = false"><md-icon :style="$store.state.day ? 'color: #FAB463;' : 'color: #88B5D5;'">cancel</md-icon></button>
       </div>
         <p class="description" v-show="!tip.showReason" style="margin: 0px;">{{tip.description}}</p>
-        <p v-show="tip.showReason" :class="$store.state.day ? 'text-gold' : 'text-blue'" style="margin: 0px;">Waarom krijg ik deze tip?</p>
+        <p v-show="tip.showReason" :class="$store.state.day ? 'text-gold' : 'text-blue'" style="margin: 0px;">Why am I getting this tip?</p>
         <p class="description" v-show="tip.showReason" style="margin: 0px;">{{tip.reason}}</p>
     </div>
   </div>
