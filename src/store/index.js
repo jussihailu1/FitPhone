@@ -75,19 +75,7 @@ export default new Vuex.Store({
           new Answer("Gaming", "Go to bed you haryupke."),
           new Answer("Other", "Go to bed you benchod."),
         ]
-      ),
-      new Question(
-        5,
-        "What kept you from falling asleep?",
-        QuestionType.MultipleChoice,
-        [
-          new Answer("Youtube", "Go to bed you motherchod."),
-          new Answer("Netflix", "Go to bed you honkerchonkor."),
-          new Answer("Chatting", "Go to bed you hippetyhop."),
-          new Answer("Gaming", "Go to bed you haryupke."),
-          new Answer("Other", "Go to bed you benchod."),
-        ]
-      ),
+      )
     ],
     selectedAnswers: [],
     activeBtn: "btn1",
